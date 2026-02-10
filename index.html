@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sorry</title>
+    <link rel="stylesheet" href="css/valentine.css" />
+  </head>
+  <body>
+    <div id="hello"><b>Hi baby!</b></div>
+    <div id="sorry"><p> I thought this would be an nice way to </p></div>
+    <div id="sorry"><p>ask from so far away sooo </p></div>
+    <div id="valentineQuestion"><b>Will you be my valentine?</b></div>
+    <button class="answerButton" onclick="location.href='lastpage.html'">
+      Yes
+    </button>
+    <button class="answerButton" id="noButton">no....</button>
+    <br />
+    
+    <script>
+      const noButton = document.getElementById("noButton");
+      
+      // Move button on hover
+      noButton.addEventListener("mouseover", function () {
+        const randomX = Math.random() * (window.innerWidth - noButton.offsetWidth);
+        const randomY = Math.random() * (window.innerHeight - noButton.offsetHeight);
+        
+        noButton.style.position = "fixed";
+        noButton.style.left = randomX + "px";
+        noButton.style.top = randomY + "px";
+      });
+      
+      // Keep the original click functionality
+      noButton.addEventListener("click", function () {
+        var yesButton = document.querySelector(
+          'button[onclick*="lastpage.html"]'
+        );
+        var currentFontSize = parseInt(
+          window.getComputedStyle(yesButton).fontSize
+        );
+        yesButton.style.fontSize = currentFontSize + 10 + "px";
+      });
+    </script>
+  </body>
+</html>
